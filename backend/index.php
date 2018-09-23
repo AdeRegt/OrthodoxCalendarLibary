@@ -35,11 +35,63 @@
 		$Pascha_maand = 3;
 		$Pascha_dag = $a_r6 + 22;
 	}
+	// Beweegbare feesten uitrekenen (deze zitten ten opzichte van Pasen)
+	
+	// Pascha
+	$Pascha = strtotime("$jaar-$maand-$dag");
+	// Palmzondag
+	$Palmzondag = strtotime("$jaar-$maand-$dag - 7 days");
+	// Hemelvaart
+	$Hemelvaart = strtotime("$jaar-$maand-$dag + 40 days");
+	// Pinksteren
+	$Pinksteren = strtotime("$jaar-$maand-$dag + 50 days");
+	
+	//
+	// Vaste feesten uitrekenen (deze hebben altijd dezelfde datum)
+	//
+	
+	// Geboorte van Moeder Gods
+	$GeboorteMoederGods 	= strtotime("$jaar-9-21");
+	// Tempelgang
+	$Tempelgang		= strtotime("$jaar-12-4");
+	// Verkondiging
+	$Verkondiging		= strtotime("$jaar-4-7");
+	// Geboorte
+	$Geboorte		= strtotime("$jaar-1-7");
+	// Ontmoeting
+	$Ontmoeting		= strtotime("$jaar-2-15");
+	// Theofanie
+	$Theofanie		= strtotime("$jaar-1-19");
+	// Transfiguratie
+	$Transfiguratie		= strtotime("$jaar-8-19");
+	// Ontslapen
+	$Ontslapen		= strtotime("$jaar-8-28");
+	// Kruisverheffing
+	$kruisverheffing	= strtotime("$jaar-9-27");
+	
 	// Rapporteren
-	echo "\"Hoogfeesten\":{\"Pascha\":{" . verwerkDatum($Pascha_jaar,$Pascha_maand,$Pascha_dag) . "}}";
+	echo "\"Hoogfeesten\":{
+		\"Pascha\":{" 			. verwerkDatum($Pascha_jaar,$Pascha_maand,$Pascha_dag) 	. "},
+		\"Palmzondag\":{" 		. verwerkDatum2($Palmzondag) 				. "},
+		\"Hemelvaart\":{" 		. verwerkDatum2($Hemelvaart) 				. "},
+		\"Pinksteren\":{" 		. verwerkDatum2($Pinksteren) 				. "},
+		\"Geboortemoedergods\":{" 	. verwerkDatum2($GeboorteMoederGods) 			. "},
+		\"Tempelgang\":{" 		. verwerkDatum2($Tempelgang) 				. "},
+		\"Verkondiging\":{" 		. verwerkDatum2($Verkondiging) 				. "},
+		\"Geboorte\":{" 		. verwerkDatum2($Geboorte) 				. "},
+		\"Ontmoeting\":{" 		. verwerkDatum2($Ontmoeting) 				. "},
+		\"Theofanie\":{" 		. verwerkDatum2($Theofanie) 				. "},
+		\"Transfiguratie\":{" 		. verwerkDatum2($Transfiguratie) 			. "},
+		\"Ontslapen\":{" 		. verwerkDatum2($Ontslapen) 				. "},
+		\"Kruisverheffing\":{" 		. verwerkDatum2($Kruisverheffing) 			. "}
+	}";
 	
 	// Einde van programma, JSON tag afsluiten
 	echo "}";
+	
+	function verwerkDatum2($datum){
+		return verwerkDatum(date("Y",$datum),date("m",$datum),date("d",$datum));
+	}
 	
 	function verwerkDatum($J,$M,$D){
 		return "\"Datum\":{
