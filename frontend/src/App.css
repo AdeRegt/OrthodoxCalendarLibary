@@ -1,0 +1,80 @@
+.flex-container{
+    display: flex;
+    flex-direction: row;
+}
+
+.flex-container > div {
+    /* background-color: #f1f1f1;
+    margin: 10px;
+    padding: 20px; */
+    margin-bottom: 10px;
+    font-size: 30px;
+    width: 100%;
+}
+
+.year-selection{
+    width: 200px;
+    font-size: .7em;
+    position: absolute;
+    text-align: center;
+    right: 0;
+}
+
+.flex-buttons{
+    order:-1;
+}
+
+.flex-selected-date{
+    order:1;
+    text-align: center;
+}
+
+.btn{
+    width: 30%;
+    height: 34px;
+    background: #b4cde0;
+    border: 0px solid rgb(187, 184, 184);
+    margin-right: 10px;
+}
+
+.btn:hover, .btn:focus{
+    background: #d3d3d3;
+    border: 0px solid #fff;
+    cursor: pointer;
+}
+
+.flex-year-selection{
+    order:2;
+    position: relative;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    grid-auto-flow: dense;
+    /* grid-gap: 2px 10px;     */
+    background-color: #b4cde0;
+    /* padding: 10px; */
+}
+
+.week-container{
+    border-bottom: 1px solid black;
+}
+
+.grid-item{
+    /* background-color: rgba(255, 255, 255, 0.8); */
+    /* border: 1px solid rgba(0, 0, 0, 0.8); */
+    padding: 20px;
+    font-size: 30px;
+    text-align: center;
+}
+
+.day:hover{
+    cursor: pointer;
+    background: #d3d3d3;
+}
+
+.current-date{
+    background: #f05050;
+}
+
